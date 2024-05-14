@@ -9,10 +9,13 @@ namespace Calculadora.Operations
 {
     internal class Division : IOperation
     {
-        Calculator calculator;
-        public decimal Operation()
+        public decimal Operation(decimal num1, decimal num2)
         {
-            if(calculator.Num1 == 0) { return num1 / num2; }
+            if(num2 != 0) 
+            {
+                decimal division = num1/num2;
+                return division;
+            }
             else { throw new Exception("No se puede dividr por cero"); }
         }
     }

@@ -9,11 +9,10 @@ namespace Calculadora.Operations
 {
     internal class Multiplication : IOperation
     {
-        private decimal num1;
-        private decimal num2;
-        public decimal Operation()
+        public decimal Operation(decimal num1, decimal num2)
         {
-            return num1 * num2;
+            decimal multi =  num1 * num2;
+            return multi;
         }
     }
 }

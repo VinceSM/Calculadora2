@@ -8,6 +8,6 @@ namespace Calculadora.Model
 {
     public interface IOperation
     {
-       decimal Operation();
+       decimal Operation(decimal num1, decimal num2);
     }
 }

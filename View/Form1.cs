@@ -1,4 +1,5 @@
 ﻿using Calculadora.Model;
+using Calculadora.Operations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,32 +19,34 @@ namespace Calculadora
             InitializeComponent();
         }
 
-        private void txtNum1_TextChanged(object sender, EventArgs e)
+        private void CalcularOperaciones()
         {
-            
-        }
+            if (decimal.TryParse(txtNum1.Text, out decimal num1) && 
+                decimal.TryParse(txtNum2.Text, out decimal num2))
+            {
+                Addition suma = new Addition();
+                txtS.Text = suma.Operation(num1, num2).ToString();
 
-        private void txtS_TextChanged(object sender, EventArgs e)
-        {
-            Addition suma = new Addition();
-            decimal Num1 = decimal.TryParse(txtNum1.Text)
-            suma.Operation();
+                Subtraction resta = new Subtraction();
+                txtR.Text = resta.Operation(num1, num2).ToString();
 
-        }
+                Division division = new Division();
+                txtD.Text = division.Operation(num1, num2).ToString();
 
-        private void txtR_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtD_TextChanged(object sender, EventArgs e)
-        {
+                Multiplication multi = new Multiplication();
+                txtM.Text = multi.Operation(num1, num2).ToString();
+            }
 
         }
 
-        private void txtM_TextChanged(object sender, EventArgs e)
+        private void txtNum1_TextChanged(object sender, EventArgs e) 
         {
+            CalcularOperaciones();
+        }
 
+        private void txtNum2_TextChanged(object sender, EventArgs e)
+        {
+            CalcularOperaciones();
         }
     }
 }
